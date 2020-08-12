@@ -1,0 +1,645 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MacOS configuration guide</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d4637e0a-f83d-4083-9c40-5e7bbad2dd44" class="page sans"><header><h1 class="page-title">MacOS configuration guide</h1></header><div class="page-body"><h2 id="aaa7253d-5e39-4d53-ad4e-17630aa58144" class="">EE4717 / IM4717 WEB APPLICATION DESIGN</h2><h2 id="5770bb43-baf3-400b-b48e-08438fb97b49" class="">Prerequisite</h2><ol id="a30419a3-e2b8-4638-bee1-d2d8b65d7cf7" class="numbered-list" start="1"><li>You should have <strong>VirtualBox</strong> installed and opened.</li></ol><ol id="310a6e4d-0007-4ba7-a3f2-47b93aa91206" class="numbered-list" start="2"><li>You should have just imported the <code>.OVA</code> virtual machine file <strong>provided by the school</strong>.</li></ol><h2 id="f8011a9b-65e5-4a4a-806e-030181b0ce2f" class="">Setup Steps</h2><h3 id="cd6bf3b4-9cc6-4543-adf2-a2e293e0b485" class="">#1 - Create a new Host-only Network Adapter</h3><ol id="eb303024-f3bd-44a7-bd7e-6140949852c9" class="numbered-list" start="1"><li>Click on <strong>File</strong> → <strong>Host Network Manager...</strong> from the menu bar.</li></ol><ol id="fc8f2e66-6ad1-4903-85b9-b78a2321108e" class="numbered-list" start="2"><li>Click on the <strong>Create</strong> button.</li></ol><ol id="ded54096-7a3b-4349-b8c7-a8679997234c" class="numbered-list" start="3"><li>Click on the <strong>Properties</strong> button.</li></ol><ol id="4503e5f4-8b44-45dc-9bdf-9531f180fedf" class="numbered-list" start="4"><li>Change the <strong>IPv4 Address</strong> to <code>192.168.56.2</code> as shown below.<figure id="31ed8d8b-e11e-49ca-9eca-a0d5b097e87d" class="image"><a href="files/Create_Host-only_Network.png"><img style="width:624px" src="files/Create_Host-only_Network.png"/></a></figure></li></ol><ol id="aecce016-5f1d-46fc-9c9c-b21ba8b30cb4" class="numbered-list" start="5"><li>Click on the <strong>IPv4 Network Mask</strong> field. <mark class="highlight-gray">(To make sure that the IPv4 value is not reverted)</mark></li></ol><ol id="825334d1-3e95-4f95-98ae-b9b1826fb9fc" class="numbered-list" start="6"><li>Click on <strong>Apply</strong> to confirm.</li></ol><ol id="a6f9bfda-3ee3-441b-93ca-8eb9a19ad101" class="numbered-list" start="7"><li>Click on <strong>Close</strong>.</li></ol><h3 id="26564ddf-3cd5-4aa6-a8cf-56dfb3b1f2ee" class="">#2 - Add SMB Port Forwarding</h3><ol id="7d34ef1c-ef4c-44ef-8330-1e36ffa9fbaf" class="numbered-list" start="1"><li>Click on the <strong>virtual machine</strong> that you have just imported.</li></ol><ol id="8b4eb81a-55f7-4e4a-a22e-f994d2a6343a" class="numbered-list" start="2"><li>Click on the <strong>Settings</strong> button.</li></ol><ol id="bdc37636-78cf-4455-974b-2985c67357b0" class="numbered-list" start="3"><li>Click on the <strong>Network</strong> button.</li></ol><ol id="3f22865c-5e48-49b7-bc8b-a8bf7dd27758" class="numbered-list" start="4"><li>Under <strong>Adapter 1</strong>, click on the text <strong>Advanced</strong>.</li></ol><ol id="cc1a462a-9e51-41fc-b2d6-fdbd647b9cfc" class="numbered-list" start="5"><li>Click on the <strong>Port Forwarding</strong> button.</li></ol><ol id="5a40585d-08be-4a4d-942c-78865c243cc3" class="numbered-list" start="6"><li>Click on the <strong>Green Plus Icon</strong> button.</li></ol><ol id="ed1723cd-2e85-4ad4-a2e6-07a912fd1dc2" class="numbered-list" start="7"><li>Fill in the <strong>Name:</strong> <code>smb</code>, <strong>Protocol:</strong> <code>TCP</code>, <strong>Host Port</strong> and <strong>Guest Port:</strong> <code>445</code> as shown below. </li></ol><figure id="1550f180-6f1c-4696-a83c-1a8f40be1501" class="image"><a href="files/Add_SMB_Port_Forwarding.png"><img style="width:576px" src="files/Add_SMB_Port_Forwarding.png"/></a></figure><p id="8de2e9cc-8499-4e59-92a3-569e44a655d5" class="">8. Click on the <strong>OK</strong> button <strong>twice</strong> to save and close Settings.</p><h3 id="32784ac6-dc59-4c60-8e70-ccc072cc956d" class="">#3 - Set up the executable for the folder mapping</h3><ol id="f555a6d1-c6be-4719-a4dc-32929856632f" class="numbered-list" start="1"><li>Create a new text file named <code>map_osx.txt</code> using your favourite editor.</li></ol><ol id="b777262e-1058-4192-9c4e-af46e0726099" class="numbered-list" start="2"><li>Paste in the following code.<pre id="76c15348-6e68-4695-a689-6813498ab558" class="code"><code>#TODO: Update the &#x27;x&#x27; in user based on the second number of tutorial group.
+#Example, if your tutorial group is F311, then your user should be f31ee.
+user=&quot;f3xee&quot;
+
+#IGNORE BELOW
+folder=&quot;$user-shortcut&quot;
+cwd=&quot;`dirname \&quot;$0\&quot;`&quot; 
+if [ -d &quot;$cwd/$folder&quot; ]
+then
+    umount  $cwd/$folder
+    rm -r $cwd/$folder
+else
+    mkdir $cwd/$folder
+    mount_smbfs //$user:$user@192.168.56.2/$user $cwd/$folder
+fi
+osascript -e &#x27;tell application &quot;Terminal&quot; to quit&#x27; &amp;
+exit</code></pre></li></ol><ol id="87b9f500-d8e9-4457-835d-e616b40b7c48" class="numbered-list" start="3"><li>Update the <code>x</code> in <code>user</code> value according to the second number of your tutorial group.</li></ol><ol id="f09ff13a-0307-4db0-a5e8-df98ce2c7a7d" class="numbered-list" start="4"><li>Make sure that there is <strong>no extra text</strong> before or after the code block as shown above.</li></ol><ol id="2a7bc421-8fdb-4b24-bffa-fdffba7ea21b" class="numbered-list" start="5"><li>Save the file as <code>map_osx.txt</code>.</li></ol><ol id="8fc4fab9-1a41-430a-8f90-bdf3d2623fcf" class="numbered-list" start="6"><li>Close the editor.</li></ol><ol id="b0ec4ff9-adb0-4bbe-928f-3a8591f4e765" class="numbered-list" start="7"><li>Rename the file, remove the <code>.txt</code> from the file name, accept the prompt to remove the extension.</li></ol><ol id="52d3fba1-6c84-48b4-a02b-87f2a417cbed" class="numbered-list" start="8"><li>Open <strong>Terminal</strong>. You may open through Spotlight Search (Press <code>⌘ command</code> + <code>spacebar</code>).</li></ol><ol id="19812820-8b5e-42e6-83f7-a91a179f0f34" class="numbered-list" start="9"><li>Type in <code>chmod +x  </code> , with an <strong>extra trailing space</strong> after the <code>+x</code>.</li></ol><ol id="2dd07336-9a83-402d-89af-b840f943fc67" class="numbered-list" start="10"><li>Drag the <code>map_osx</code> file that you have created into the <code>Terminal</code> window.</li></ol><ol id="60641db1-d262-4f08-a918-be8fdcaad1c8" class="numbered-list" start="11"><li>Press the <strong>return</strong> key on your keyboard (Also known as the Enter key). </li></ol><ol id="cb5ccb31-f550-4d54-8e9f-96b23cebcb84" class="numbered-list" start="12"><li>This file that you have just created is an executable file.</li></ol><h2 id="643bfcb0-361f-490a-acfc-e71dcd3b425d" class="">Usage Instructions</h2><ul id="6af6cbfa-9d70-408b-85de-84f4d3384cae" class="bulleted-list"><li>Your virtual machine should be powered on and be displaying the <strong>login screen</strong> before you can create a mount to the virtual machine folder.</li></ul><ul id="2594b3ea-b0ed-4fb6-8642-063c3acb87f1" class="bulleted-list"><li>To mount the virtual machine folder, <strong>double click</strong> on the <code>map_osx</code> file.<ul id="7da29fdf-8aa7-49e0-b80a-bf709b5bf190" class="bulleted-list"><li>If the virtual machine is <strong>not</strong> running, only an empty folder will be created.</li></ul><ul id="cce69da3-6780-4701-876c-14c4ce6b4420" class="bulleted-list"><li>If the virtual machine is running, a shortcut to access the mount will be created.</li></ul><ul id="0bb0aef0-24fa-4424-b9a3-7b4b927eb983" class="bulleted-list"><li>You may also access the mounted folder </li></ul></li></ul><ul id="7c7bdd6f-1b17-4716-a987-5cf0b27c2da9" class="bulleted-list"><li>To unmount or to delete the empty folder, <strong>double click</strong> on the <code>map_osx</code> file.</li></ul><h2 id="7d2e58a4-0353-48f3-9a7a-1535c6e34946" class="">Bonus Tips</h2><h3 id="05658bbe-032c-4dee-bc33-c268c28458fd" class="">Scale Virtual Machine Window</h3><p id="3f31be16-4c5d-4332-a2f5-e2fb7fce6451" class="">Due to the high resolution displays on Macs, the virtual machine window might be very small.</p><p id="3e1f241b-fde3-4b22-873a-f2cd6d7fb689" class="">With the virtual machine in focus, click on the <strong>View</strong> → <strong>Virtual Screen 1</strong> → <strong>Scale to 200%</strong> to scale it up.</p><figure id="3b82acbc-f0c5-4579-8e0c-8b4364f582d2" class="image"><a href="files/Display_Scaling.png"><img style="width:528px" src="files/Display_Scaling.png"/></a></figure><h3 id="3c169149-006f-4abe-af8f-71c09d666b70" class="">Proper Shutdown of Virtual Machine</h3><div id="f6d8ab32-57df-4007-b94f-8d8f7bc0c092" class="column-list"><div id="5916bb19-615a-4cd9-b734-b62935fae706" style="width:62.5%" class="column"><p id="bf93fdcb-2291-4f3e-86e2-0039e4bb8646" class="">When you press the close button of the virtual machine, you can pick among the following options as shown in the image. Select the <strong>Send the shutdown signal</strong> option in order to shut it down properly.</p></div><div id="a4e273d6-e954-49e9-a151-0306ececee58" style="width:37.50000000000001%" class="column"><figure id="50fa69da-90fe-415c-aaac-330529ea4640" class="image"><a href="files/Shutdown_Options.png"><img style="width:192px" src="files/Shutdown_Options.png"/></a></figure></div></div><p id="8f66866c-fca4-4a18-be7f-1d8bd4efb29a" class="">
+</p><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="17db90ab-1d1f-46cc-a035-71dc9871c66a"><div style="font-size:1.5em"><span class="icon">🐤</span></div><div style="width:100%">Written by <strong>Ian Ng</strong> <a href="https://github.com/licitdev">@licitdev</a> on August 12, 2020</div></figure><p id="edb0b74a-984e-4eaf-96f0-1f48f2477a6e" class="">
+</p></div></article></body></html>
