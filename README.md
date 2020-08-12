@@ -1,4 +1,4 @@
-# MacOS configuration guide
+# macOS configuration guide
 
 ### EE4717 / IM4717 WEB APPLICATION DESIGN
 
